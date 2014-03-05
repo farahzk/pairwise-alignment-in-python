@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import sys, string
+import alignment #import the file with the functions
+
+# Command-line arguments for 3 files and one integer.
+f1 = open(sys.argv[1], 'r') #first fasta/txt file
+f1.readline()
+seq1 = ''
+for line in f1:
+    seq1 += string.strip(line)
+
+f2 = open(sys.argv[2], 'r') #second fasta/txt file
+seq2 = ''
+f2.readline()
+for line in f2:
+    seq2 += string.strip(line)
+
+alignment.needleWunsch(seq1, seq2, sys.argv[3], int(sys.argv[4]))
+# sys.argv[3]=substitution matrix file
+# sys.argv[4]=gap_penalty.
